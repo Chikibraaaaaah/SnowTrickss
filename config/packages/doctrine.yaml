@@ -22,6 +22,12 @@ when@test:
         dbal:
             # "TEST_TOKEN" is typically set by ParaTest
             dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+          
+            # Configure these for your database server
+            driver: 'pdo_mysql'
+            server_version: '5.7'
+            charset: utf8mb4
+            url: '%env(resolve:DATABASE_URL)%'
 
 when@prod:
     doctrine:
